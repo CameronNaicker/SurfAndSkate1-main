@@ -1,0 +1,662 @@
+/*
+Reset
+--------------------------------------------------------------------------
+*/
+
+:root{
+  --primaryColor: #f1f1f1;
+    --black: #222;
+    --black2: #555;
+    --black3: #252525;
+    --black4: #000;
+    --black5: #212529;
+    --orange: #eb0028;
+    --white: #fff;
+    --grey: #959595;
+    --grey2: #666;
+    --grey3: #ccc;
+    --secondaryColor: #2b1f4d;
+    --yellow: #ffcc00;
+    --green: #59b210;
+
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: inherit;
+}
+
+
+
+html{
+font-size: 63%;
+box-sizing: border-box;
+
+}
+input{
+    font-size: 1.6rem;
+    font-weight: 350;
+    font-family: 'Merriweather', serif;
+    color: black;
+}
+body{
+    font-size: 1.6rem;
+    font-weight: 350;
+    font-family: 'Merriweather', serif;
+    color: black;
+
+}
+a{
+
+text-decoration: none;
+
+}
+ul{
+
+    list-style: none;
+
+}
+img{
+    max-width: 100%;
+}
+h3,
+h4{
+font-weight: 500;
+}
+/*
+-------------------------------------------------------------------------
+Header
+*/
+.header{
+height: 100px;
+width: 100%;
+z-index: 12;
+position: fixed;
+    
+}
+.container{
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 1.6rem;
+}
+/*
+--------------------------------------------------------------------------
+Navigation
+*/
+
+.navigation{
+ 
+    position: relative;
+    height: 7rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+}
+.nav{
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 7rem;
+width: 100%;
+padding: 0 1rem;
+
+
+}
+.nav__logo a{
+
+    font-size: 2.5rem;
+    color: var(--black);
+    padding: 1.6rem;
+    font-weight: 700;
+}
+
+.nav__hamburger{
+
+display: none; 
+cursor: pointer;
+
+}
+.nav__hamburger i{
+height: 2.3rem;
+width: 23rem;
+
+}
+.menu__top{
+    display: none;
+}
+
+.nav__menu{
+
+    width: 50%;
+}
+
+.nav__list{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+}
+.nav__item:not(:last-child){
+
+    margin-right: 1.6rem;
+
+}
+
+.nav__list .nav__link:link,
+.nav__list .nav__link:visited{
+
+    display: inline-block;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: var(--black);
+    transition: color .3s ease-in-out;
+
+}
+
+.nav__list .nav__link:hover{
+   color: #33e3ff; 
+}
+
+
+.nav__icons{
+display: flex;
+position: relative;
+
+}
+
+.nav__icons .icon__item i{
+
+    width: 1.6rem;
+    height: 1.6rem;
+}
+.nav__icons .icon__item {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .7rem;
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    transition: all .3s ease-in-out;
+
+
+}
+.nav__icons .icon__item:link,
+.nav__icons .icon__item:visited{
+
+    color: var(--black);
+}
+
+.nav__icons .icon__item:hover{
+    background-color: #33e3ff;
+    border: 1px solid var(--black);
+}
+
+.nav__icons .icon__item:not(:last-child){
+
+    margin-right: 1rem;
+}
+
+.nav__icons #cart__total{
+
+    font-size: 1rem;
+    position: absolute;
+    top: 2px;
+    right: -6px;
+        padding: .3rem .5rem;
+    border-radius: 100%;
+    color: var(--primaryColor);
+
+}
+/*
+--------------------------------------------------------------------------
+Navigation query 
+Mobile screen sizing
+*/
+
+@media only screen and (max-width: 768px){
+
+    .nav__menu{
+        position: fixed;
+        top: 0;
+        left: -30rem;
+        width: 0;
+        background-color: var(--white);
+        z-index: 9990;
+        height: 100%;
+        transition: all .3s;
+    }
+
+    .nav__menu.open{
+left: 0rem;
+width: 30rem;
+
+    }
+    .nav__logo{
+        width: 50%;
+    }
+
+    .nav__hamburger{
+        display: block;
+
+    }
+
+.menu__top{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--grey3);
+    padding: 1.8rem 1rem;
+}
+/*
+--------------------------------------------------------------------------
+ Font Awesome Details 
+
+ */
+
+.menu__top i{
+
+    height: 1.6rem;
+    width: 1.6rem;
+    fill: var(--primaryColor);
+}
+
+.nav__category{
+
+    columns: var(--white);
+    font-size: 2.3rem;
+    font-weight: 700;
+
+}
+.nav__list{
+flex-direction: column;
+align-items: flex-start;
+padding: 1.6rem 1rem;
+
+}
+
+.nav__item:not(:last-child){
+
+    margin-right: 0;
+
+}
+
+.nav__item{
+    width: 100%;
+}
+.nav__list .nav__link:link,
+.nav__list .nav__link:visited{
+
+    padding: 1.6rem 0;
+    width: 100%;
+    color: var(--grey2);
+}
+
+body.active::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primaryColor) none no-repeat 0 0;
+    opacity: .7;
+    z-index: 999;
+    transition: .8s;
+}
+
+@media only screen and (max: width 568px){
+
+    .nav__icons .icon__item i{
+width: 1.5rem;
+height: 1.5rem;
+
+    }
+    .nav__icons .icon__item{
+
+        padding: .5rem;
+       
+            }
+
+
+
+}
+
+
+
+}
+/*
+--------------------------------------------------------------------------
+Main Area 
+*/
+
+
+.hero,
+.hero .glide__slides{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.hero .glide__arrow{
+
+    padding: 1.5rem 1.7rem;
+    opacity: 0;
+    border: none;
+    background-color: var(--grey);
+    transition: all 0.5s ease-in-out 0.2s;
+}
+
+.glide__arrow:hover{
+
+    background-color: #33e3ff;
+
+}
+
+.glide__arrow--left{
+
+    left: 20rem;
+}
+.glide__arrow--right{
+    position: absolute;
+    right: 20rem;
+}
+.hero:hover .glide__arrow{
+    opacity: 1;
+
+}
+
+.hero:hover .glide__arrow--left{
+    left: 23rem;
+}
+.hero:hover .glide__arrow--right{
+    right: 23rem;
+}
+
+.hero .glide__arrow i {
+height: 1.8rem;
+width: 1.8rem;
+fill: var(--primaryColor);
+}
+
+.hero .glide__arrow{
+    border-radius: 50%;
+}
+
+.hero__center{
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+max-width: 114rem;
+margin: 0 auto;
+height: 100%;
+padding-top: 3rem;
+
+}
+
+.hero__left{
+    padding: 0 3rem;
+    flex: 0 0 50%;
+
+}
+
+.hero__btn{
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.4rem;
+    background-color: var(--black);
+    color: var(--primaryColor);
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: 1.5rem 4rem;
+    border:1px solid var(--black);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.hero__btn:focus{
+    outline: none;
+}
+
+.hero__left .hero__btn:hover{
+
+    font-weight: 700;
+    background-color: transparent;
+    color: var(--black);
+
+}
+
+.hero__left h1{
+
+    margin: 1rem 0;
+}
+
+.hero__left p{
+
+    margin-bottom: 1rem;
+}
+
+.hero__right{
+
+    flex: 0 0 50%;
+    position: relative;
+    text-align: center;
+}
+
+
+/*
+
+Deciding whether to make the second slide banner smaller
+
+.hero__right img.banner_02{
+
+    width: 70%;
+}
+*/
+
+/*
+--------------------------------------------------------------------------
+Main Area Media Query
+
+*/
+
+@media only screen and (max-width: 1020px){
+    .hero__center{
+
+        flex-direction: column;
+        text-align: center;
+        
+    }
+
+    .hero__right{
+        top: 50%;
+        position: absolute;
+    }
+    .hero__left{
+        position: absolute;
+        padding: 0 1rem;
+        top: 20%;
+    }
+
+    .hero__right img{
+
+        width: 80%;
+
+    }
+
+    .hero__btn{
+        padding: 1.1rem 2.8rem;
+    }
+    .hero .glide__arrow{
+        display: none;
+    }
+
+}
+
+/*
+----------------------------------------------------------------
+Collection of Skateboards and Surfboards
+*/
+.section{
+
+    padding: 3rem 0;
+
+}
+
+.collection{
+background-color: var(--white);
+    margin: 3rem 0;
+
+}
+.collection__container{
+    width: 100%;
+    padding: 0 1.6rem;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.collection__box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    flex: 0 0 48%;
+    height: 30rem;
+    background-color: var(--primaryColor);
+}
+.collection__box:not(:last-child){
+    margin-right: 1.6rem;
+}
+.img__container{
+    width: 25rem;
+    text-align: center;
+}
+.collection__box img.collection_01{
+    width: 100%;
+}
+
+.collection__box img.collection_02{
+    width: 90%;
+}
+
+.collection__content{
+    flex: 0 0 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.collection__content span{
+    color: var(--black);
+}
+.collection__content h1{
+    margin-top: 0.5rem;
+}
+.collection__content a:link,
+.collection__content a:visited{
+    font-weight: 700;
+    display: inline-block;
+    padding: 1rem 1.4rem;
+    margin-top: 1.3rem;
+    border-radius: 3rem ;
+    color: var(--primaryColor);
+    border: 2px solid var(--secondaryColor);
+    background-color: var(--secondaryColor);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.collection__content a:hover{
+    background-color: transparent;
+    color: var(--secondaryColor);
+}
+
+/*
+--------------------------------------------------------
+Collection Media Query 
+*/
+
+@media only screen and (max-width: 999px){
+
+    .collection__container{
+
+        width: 80%;
+        margin: 0 auto;
+        flex-direction: column;
+        height: 65rem;
+
+    }
+    .collection__box{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .collection__box:not(:last-child){
+        margin: 0 0 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 568px){
+
+    .collection{
+        margin: 0;
+        position: relative;
+    }
+
+    .collection__container{
+        width: 100%;
+        height: 50rem;
+        text-align: center;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .collection__box{
+justify-content: space-around;
+height: 15rem;
+
+    }
+.collection__content{
+    flex: 0 0 30%;
+}
+
+.collection__data span{
+    font-size: 1.2rem;
+}
+.collection__data h1{
+    font-size: 2rem;
+}
+
+
+}
+
+/*
+------------------------------------------------------------------
+Products (Latest)
+*/
+
+.title__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 6rem;
+    padding: 2rem 0;
+    background-color: var(--primaryColor);
+}
+.section__title:not(:last-child){
+    margin-right: 1.5rem;
+}
+.section__title{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.section__title h1{
+    font-size: 1.9rem;
+    font-weight: inherit;
+}
