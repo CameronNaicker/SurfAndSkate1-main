@@ -3,17 +3,15 @@ function validate(){
     var username=document.getElementById("username").value;
     var password=document.getElementById("password").value;
 
-if(username = null && username != "Admin"){
+if(username = null && username.value != "Admin"){
 window.alert("Please enter Username");
 }
-if (password = null && password != "surf") {
+if (password.value = null && password != "surf") {
 
     window.alert("Please enter password");
     
     return false;
-}
-
-    if(username=="Admin" && password=="surf"){
+} else if(username=="Admin" && password=="surf"){
  
 alert("Login Successful");
 
@@ -21,5 +19,6 @@ alert("Login Successful");
 
         window.alert("Username or Password Incorrect");
         return false;
+        
     }
 }
